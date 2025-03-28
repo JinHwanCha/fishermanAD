@@ -10,7 +10,7 @@
 <body>
     <div class="wrap">
         <h1 class="logo">
-            <img src="./img/logo.jfif" alt="logo">
+            <img src="./img/logo.png" alt="logo">
         </h1>
         <div class="title_wrap">
             <h2 class="title">@FishermanAD</h2>
@@ -41,11 +41,21 @@
                 </a>
             </li> -->
         </ul>
+        <div class="footer">
+            <p>문의 :</p>
+            <a href="https://www.instagram.com/2moksa/" target="_blank">
+                <img src="./img/2moksa.png" alt="2moksa">
+            </a>
+        </div>
 
 
     </div>
 
     <script>
+        setTimeout(() => {
+            document.querySelector('.wrap').classList.add('on');
+        }, 1000);
+
         async function fetchGoogleSheetData() {
             try {
                 const response = await fetch("https://docs.google.com/spreadsheets/d/1fZ9UU4xTD0h0CpjLigxQpI-nYSdL4bIM3pE3YuI6gH8/gviz/tq?tqx=out:json");
