@@ -15,7 +15,7 @@
 
 .list_link {display: flex; flex-direction: column; gap: 10px; margin-top: 20px;}
 .list_link .item_link:first-child {display: none;}
-.item_link .button {display: flex; align-items: center; gap: 20px; width: 100%; padding: 10px; border: 2px solid #000; border-radius: 100px; background-color: transparent; font-size: 16px; font-weight: bold;}
+.item_link .button {display: flex; align-items: center; gap: 20px; width: 100%; padding: 10px; border: 2px solid #000; border-radius: 100px; background-color: transparent; font-size: 16px; font-weight: bold; text-align: left;}
 .item_link .button:hover,
 .item_link .button:active {background-color: #000; color: #fff;}
 .item_link img {min-width: 40px; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; object-fit: cover;}

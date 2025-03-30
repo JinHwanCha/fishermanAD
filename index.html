@@ -139,6 +139,9 @@
         function popupOpen(data) {
             currentData = data;  // 클릭한 모임 데이터 저장
 
+            // body에 스크롤 방지
+            document.body.style.overflow = 'hidden';
+
             // 팝업 내용 채우기
             document.querySelector('.popup_title').textContent = currentData.title;
             document.querySelector('.leader_list').innerHTML = ` 
@@ -169,7 +172,11 @@
         function popupClose() {
             // 팝업 닫기
             document.querySelector('.dim').style.display = 'none';
+            
+            // body 스크롤 다시 활성화
+            document.body.style.overflow = '';
         }
+
     </script>
     
     
