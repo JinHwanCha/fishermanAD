@@ -74,7 +74,7 @@ table {
 	border-spacing: 0;
 }
 img {width: 100%;}
-a {font-family: 'plus-R';text-decoration: none; color: #000; cursor: pointer;}
+a, button {font-family: 'plus-R';text-decoration: none; color: #000; cursor: pointer;}
 
 .sr-only {
     position: absolute;
