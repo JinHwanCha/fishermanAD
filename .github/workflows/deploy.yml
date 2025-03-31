@@ -1,0 +1,23 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 push될 때 실행
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: 112.175.185.145
+          username: fishermenmoim
+          key: AAAAB3NzaC1yc2EAAAADAQABAAABgQCtd6t17qB6hyxBaUcfCTuerkBAoIo655WibawvlLDV4WxHPblWYnmLJhSaXCT6RmwvHivmOYwIfZkdCWl/REBrkUCDQ7sVbNDVLITeoaE/jUdZt7r+S23ZWYlqU0oOnsAxrfuZeTVJPLVDh+bbrQnrBnNSsJUtqy/zVDoHyfrwiEuLJQ2SGosNkqnK4Dc8qp4f29ZcBab5A9h4/uXT6MoZ4yWig27elEGsNP9/LwX/QQadQ54AcUla0OPf39EJun0ePFhoH9pMTZsW2jxJOxZmBsgcvCoG+5rsSUaJ1iZAHZNXjCs1VLruDVu/brHPxFxo++o+7fa3xDki7HHUQswTBvv2PKV825h7CB7gP+VJmmqmQnv1+DZV+Pzhj9UiTYsmTn6FhFoxGh+CSilqnHq4aNJtZMd0uYXmTJpBxAgQXujrzsZFwAhunHHYw1mnEgUiiidv9/GTpDHYyt4cNfnJwjuPqmajfIMXnJkQzCEy+scv4CmCpa8WOR5aDmy3X+k= admin@DESKTOP-0FBSOR4
+          script: |
+            cd /var/www/your-project
+            git pull origin main
