@@ -21,7 +21,7 @@
             <p class="title_desc">And he saith unto them, <br>Follow me, and I will make you fishers of men. <br>Matthew 4:19</p>
             <ul class="list_sns">
                 <li class="item_sns item_youtube">
-                    <a title="YouTube" data-testid="SocialIcon" target="_blank" rel="noopener noreferrer" href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" aria-label="YouTube" class="[&amp;svg]pointer-events-none z-0 p-2 transition-transform hover:scale-[107.5%]"><img src="./img/youtube_logo.png"><span class="sr-only">YouTube</span></a>
+                    <a title="YouTube" data-testid="SocialIcon" target="_blank" rel="noopener noreferrer" href="https://youtube.com/@naesoofishermen?si=sRH2adNZru9hspJv" aria-label="YouTube" class="[&amp;svg]pointer-events-none z-0 p-2 transition-transform hover:scale-[107.5%]"><img src="./img/youtube_logo.png"><span class="sr-only">YouTube</span></a>
                 </li>
                 <li class="item_sns item_instagram">
                     <a title="Instagram" data-testid="SocialIcon" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/naesoofishermen/" aria-label="Instagram" class="[&amp;svg]pointer-events-none z-0 p-2 transition-transform hover:scale-[107.5%]"><img src="./img/insta_logo.png"><span class="sr-only">Instagram</span></a>
@@ -150,14 +150,16 @@
             `;
             // contentImg가 있는 경우 img 태그 추가, 없으면 content 텍스트 출력
             const contentElement = document.querySelector('.content');
+            contentElement.innerHTML = '';  // 기존 content 초기화
             if (currentData.contentImg) {
                 const img = document.createElement('img');
                 img.src = currentData.contentImg;
                 img.alt = currentData.category;  // alt 태그는 모임 제목으로 설정
-                contentElement.innerHTML = '';  // 기존 content 초기화
                 contentElement.appendChild(img);  // 이미지 추가
             } else {
-                contentElement.textContent = currentData.content;  // 이미지가 없으면 텍스트 출력
+                const pre = document.createElement('pre');
+                pre.textContent = currentData.content;  // <pre> 태그 안에 텍스트 설정
+                contentElement.appendChild(pre);  // <pre> 태그 추가
             }
             
             document.querySelector('.link_wrap').innerHTML = `
