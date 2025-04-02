@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const listElement = document.getElementById("data-list");
             listElement.innerHTML = ""; // 기존 목록 초기화
 
-            rows.forEach(row => {
+            rows.slice(1).forEach(row => {
                 let title = row.c[0]?.v || "";
                 let applyLink = row.c[1]?.v || "#";
                 let imageSrc = row.c[2]?.v || "";
@@ -27,10 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 let content = row.c[7]?.v || "";
                 let linkTitle = row.c[8]?.v || "확인";
                 let closeLink = row.c[9]?.v || "";
-
-                if (imageSrc && !imageSrc.startsWith("http")) {
-                    imageSrc = "https://cdn.ardentnews.co.kr/news/photo/202409/" + imageSrc;
-                }
 
                 const li = document.createElement("li");
                 li.classList.add("item_link");

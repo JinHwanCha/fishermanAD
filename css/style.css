@@ -14,7 +14,6 @@
 .item_sns a {display: flex; justify-content: center; align-items: center;}
 
 .list_link {display: flex; flex-direction: column; gap: 10px; margin-top: 20px;}
-.list_link .item_link:first-child {display: none;}
 .item_link .button {position: relative; display: flex; align-items: center; gap: 20px; width: 100%; padding: 10px 30px 10px 10px; border: 2px solid #000; border-radius: 100px; background-color: transparent; font-size: 16px; font-weight: bold; text-align: left;}
 .item_link .button::before,
 .item_link .button::after {content: "";position: absolute;right: 12px;top: 50%;width: 12px; height: 3px;background-color:#000;border-radius: 50px;}
