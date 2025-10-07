@@ -38,7 +38,7 @@
 			function update_quiz(){
 				var $question = $('#question');
 				var idx = quiz.questionIndex + 1;
-				$question.html('문제 '+ idx + ') ' + quiz.questions[quiz.questionIndex].text);
+				$question.html('Q'+ idx + '<br> ' + quiz.questions[quiz.questionIndex].text);
 
 				for(var i=0; i<8; i++){
 					var $choice = $('.btn').eq(i);
@@ -49,7 +49,7 @@
 			//문제 진행 정보 표시 (현재 문제 번호/총 문항수)
 			function progress() {
 				var progress = $('#progress');
-				progress.html("문제" + (quiz.questionIndex+1)+"/"+quiz.questions.length);
+				progress.html((quiz.questionIndex+1)+"/"+quiz.questions.length);
 			}
 
 			//결과 표시
