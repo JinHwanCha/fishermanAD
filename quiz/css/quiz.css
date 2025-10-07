@@ -1,7 +1,7 @@
-body.quiz{font-family: sans-serif; padding: 25px; font-size: 18px;}
-.grid {max-width: 600px; margin: 50px auto; background-color: #fff; padding: 10px 50px 30px 50px; border: 2px solid skyblue; border-radius: 20px; box-shadow: 5px 5px 5px #cbcbcb;}
-.grid h1 {color: #333; font-size: 2.4em; text-align: center;}
-.grid #question {font-size: 24px; background-color: #0E4EB1; color: #fff; font-size: 1.2em; padding: 10px 2em; border-radius: 15px; text-align: left;}
+body.quiz{font-family: sans-serif; padding: 0 25px; font-size: 18px; background: linear-gradient(180deg, rgba(34,193,195,0.3337710084033614) 0%, rgba(214,169,240,1) 55%, rgba(34,193,195,0.54) 100%);}
+.grid {max-width: 600px; margin: 50px auto; background-color: #fff; padding: 10px 50px 30px; border: 2px solid skyblue; border-radius: 20px; box-shadow: 5px 5px 5px #cbcbcb;}
+.grid h1 {color: #333; font-size: 42px; text-align: center; line-height: 1;}
+.grid #question {font-size: 24px; background-color: #0E4EB1; color: #fff; font-size: 22px; padding: 10px 2em; border-radius: 15px; text-align: left;}
 #quiz {text-align: center;}
 
 #progress{color: #2b2b2b; font-size: 20px;}
@@ -10,3 +10,11 @@ body.quiz{font-family: sans-serif; padding: 25px; font-size: 18px;}
 .btn:nth-child(2n) {margin-right: 0;}
 .btn:hover {cursor: pointer; background-color: #0E4EB1; color: white;}
 .btn:focus {outline: 0;}
+
+
+@media all and (max-width: 720px){
+    body.quiz {padding: 0 3.4722vw;}
+    .grid {padding: 1.3889vw 6.9444vw 4.1667vw;}
+    .buttons {gap: 10px;}
+    .btn {width: 100%;}
+}
