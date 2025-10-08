@@ -8,6 +8,9 @@ body.quiz{font-family: sans-serif; padding: 0 25px; font-size: 18px; background:
 .buttons {display: flex; flex-wrap: wrap; gap: 20px;}
 .btn {background-color: #B7E5EB; width: calc((100% - 20px) / 2); font-size: 16px; border-radius: 100px; border: 0; padding: 10px; transition: 0.5s;}
 .btn:nth-child(2n) {margin-right: 0;}
+.btn:hover,
+.btn.touch-hover {cursor: pointer; background-color: #88C4EC; color: white;}
+.btn:focus {outline: 0;}
 
 
 @media all and (max-width: 720px){
@@ -17,7 +20,12 @@ body.quiz{font-family: sans-serif; padding: 0 25px; font-size: 18px; background:
     .btn {width: 100%;}
 }
 
-@media (hover: hover) and (pointer: fine) { 
-    .btn:hover {cursor: pointer; background-color: #88C4EC; color: white;}
-    .btn:focus {outline: 0;}
+@media (hover: none) {
+  .btn:hover,
+  .btn:focus,
+  .btn:active,
+  .btn.touch-hover {
+    background-color: #88C4EC;
+    color: white;
+  } 
 }
