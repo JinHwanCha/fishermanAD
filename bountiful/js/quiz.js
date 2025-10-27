@@ -80,14 +80,14 @@ $(function(){
 
 		if(per<40){
 			txt +='<h2 style="color:red">좀더 분발하시길ㅎ</h2>';
-		} else if(per <=55) {
-			txt +='<h2 style="color:red">나쁘지 않은데요?!</h2>';
 		} else if(per <=70) {
+			txt +='<h2 style="color:red">나쁘지 않은데요?!</h2>';
+		} else if(per <=80) {
 			txt +='<h2 style="color:red">훌륭합니다!</h2>';
 		} else if(per <=90) {
-			txt +='<h2 style="color:red">꽤 많은걸 알고 있군요?</h2>';
+			txt +='<h2 style="color:red">아쉬워요ㅠㅠ 다시 도전?</h2>';
 		} else {
-			txt += '<h2 style="color:red">내수동교회 어디까지 알고있니..?</h2>';
+			txt += '<h2 style="color:red">축하드립니다🎉🎉 <br>마을톡방에 캡쳐&공유!!</h2>';
 		}
 		$quiz.html(txt);
 	}
