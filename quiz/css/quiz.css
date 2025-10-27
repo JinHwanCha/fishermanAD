@@ -1,4 +1,10 @@
 body.quiz{font-family: sans-serif; padding: 0 25px; font-size: 18px; background: linear-gradient(180deg, rgba(34,193,195,0.3337710084033614) 0%, rgba(214,169,240,1) 55%, rgba(34,193,195,0.54) 100%);}
+
+.quiz {position:relative; display: flex; flex-direction: column; align-items: center; max-width: 540px; margin: 0 auto; padding: 40px 20px; box-sizing: border-box; transition: all 1s;}
+.quiz::before {content: ''; position: fixed; left: 0; top: 0; width: 100vw;height: 100vh; background-color: #fff; transition: all 1s; opacity: 1; z-index: 1;}
+.quiz::after {content: ''; position: fixed; left: 50%; top: 50%; width: 213px; height: 170px; transform: translate(-50%, -50%); background: url('../../img/fishermen.png') no-repeat center; background-size: 100%; transition: all 1s; opacity: 1; z-index: 1;}
+.quiz.on::before,.quiz.on::after {transition: all 1s; opacity: 0; z-index: -1;}
+
 .grid {max-width: 600px; margin: 50px auto; background-color: #fff; padding: 10px 50px 30px; border: 2px solid skyblue; border-radius: 20px;}
 .grid h1 {color: #333; font-size: 42px; text-align: center; line-height: 1;}
 .grid #question {font-size: 24px; font-size: 22px; margin: 40px 0 50px; line-height: 1.1; text-align: left;}

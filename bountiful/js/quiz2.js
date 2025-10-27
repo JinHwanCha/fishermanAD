@@ -21,7 +21,7 @@ $(function(){
 
     // ✅ 구글 시트 데이터 불러오기
     async function fetchQuizData() {
-        const sheetURL = "https://docs.google.com/spreadsheets/d/1hsbH3pV4LVutkELkaqc6Kzg8U7Hz1awhG2gQcbQ3M3U/gviz/tq?tqx=out:json";
+        const sheetURL = "https://docs.google.com/spreadsheets/d/1Mz9c4pAgtANGVOB-XTewj0xbnqUtKGaStmmmg89sqqo/gviz/tq?tqx=out:json";
         try {
             const response = await fetch(sheetURL);
             const text = await response.text();
