@@ -12,6 +12,18 @@
 }
 
 @font-face {
+    font-family: 'paper-L';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../font/Paperlogy/Paperlogy-7bold.eot');
+    src: url('../font/Paperlogy/Paperlogy-7bold.eot?#iefix') format('embedded-opentype'),
+        url('../font/Paperlogy/Paperlogy-7bold.woff2') format('woff2'),
+        url('../font/Paperlogy/Paperlogy-7bold.woff') format('woff'),
+        url('../font/Paperlogy/Paperlogy-7bold.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'plus-R';
     font-weight: 400;
     font-style: normal;
