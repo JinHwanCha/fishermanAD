@@ -2,13 +2,26 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         document.querySelector('.wrap').classList.add('on');
     }, 1000);
-// 오늘 날짜 자동 표시
+  // 오늘 날짜 자동 표시
   const dateEl = document.querySelector(".date");
   if (dateEl) {
     const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
+
+    // 오늘 요일 구하기 (일요일=0, 월요일=1, ... 토요일=6)
+    const dayOfWeek = today.getDay();
+
+    // 이번 주 일요일 날짜 계산
+    // dayOfWeek가 0이면 이미 일요일이므로 그대로, 아니면 다음 일요일로
+    const daysUntilSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+
+    const sunday = new Date(today);
+    sunday.setDate(today.getDate() + daysUntilSunday);
+
+    // 포맷
+    const year = sunday.getFullYear();
+    const month = String(sunday.getMonth() + 1).padStart(2, "0");
+    const day = String(sunday.getDate()).padStart(2, "0");
+
     dateEl.textContent = `${year}.${month}.${day}.`;
   }
 
