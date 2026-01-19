@@ -65,58 +65,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function slideDown(element, duration = 400) {
-        element.classList.remove("hidden");
-        element.style.display = "block";
-        element.style.overflow = "hidden";
-        element.style.height = "0";
-        element.style.opacity = "0";
-        element.style.transition = `height ${duration}ms ease-out, opacity ${duration}ms ease-out`;
-        
-        const scrollHeight = element.scrollHeight;
-        
-        setTimeout(() => {
-            element.style.height = scrollHeight + "px";
-            element.style.opacity = "1";
-        }, 10);
-    }
-
-    function slideUp(element, duration = 400) {
-        element.style.overflow = "hidden";
-        element.style.height = element.scrollHeight + "px";
-        element.style.opacity = "1";
-        element.style.transition = `height ${duration}ms ease-in, opacity ${duration}ms ease-in`;
-        
-        setTimeout(() => {
-            element.style.height = "0";
-            element.style.opacity = "0";
-        }, 10);
-        
-        setTimeout(() => {
-            element.classList.add("hidden");
-            element.style.display = "none";
-            element.style.transition = "";
-        }, duration);
-    }
-
     function toggleList() {
         const toggleBtn = document.getElementById("toggleBtn");
-        const allItems = document.querySelectorAll(".item_link");
+        const allItems = $(".item_link");
 
         if (isExpanded) {
             // 접기
-            allItems.forEach((item, index) => {
+            allItems.each(function(index) {
                 if (index >= 5) {
-                    slideUp(item, 400);
+                    $(this).slideUp(400, function() {
+                        $(this).addClass("hidden");
+                    });
                 }
             });
             toggleBtn.textContent = "더보기";
             isExpanded = false;
         } else {
             // 더보기
-            allItems.forEach((item, index) => {
+            allItems.each(function(index) {
                 if (index >= 5) {
-                    slideDown(item, 400);
+                    $(this).removeClass("hidden").hide().slideDown(400);
                 }
             });
             toggleBtn.textContent = "접기";
