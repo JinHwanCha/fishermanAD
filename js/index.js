@@ -3,20 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.wrap').classList.add('on');
     }, 1000);
 
-    let currentData = {};  // 현재 클릭한 모임의 데이터를 저장할 변수
+    let currentData = {};
+    let isExpanded = false;
 
     async function fetchGoogleSheetData() {
         try {
             const response = await fetch("https://docs.google.com/spreadsheets/d/1fZ9UU4xTD0h0CpjLigxQpI-nYSdL4bIM3pE3YuI6gH8/gviz/tq?tqx=out:json");
             const text = await response.text();
             
-            const json = JSON.parse(text.substring(47, text.length - 2)); // Google Sheets 응답에서 불필요한 부분 제거
-            const rows = json.table.rows; // 데이터 행 가져오기
+            const json = JSON.parse(text.substring(47, text.length - 2));
+            const rows = json.table.rows;
 
             const listElement = document.getElementById("data-list");
-            listElement.innerHTML = ""; // 기존 목록 초기화
+            listElement.innerHTML = "";
 
-            rows.slice(1).forEach(row => {
+            rows.slice(1).forEach((row, index) => {
                 let title = row.c[0]?.v || "";
                 let applyLink = row.c[1]?.v || "#";
                 let imageSrc = row.c[2]?.v || "";
@@ -30,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const li = document.createElement("li");
                 li.classList.add("item_link");
+                
+                if (index >= 5) {
+                    li.classList.add("hidden");
+                }
 
                 const button = document.createElement("button");
                 button.classList.add("button");
@@ -45,8 +50,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 listElement.appendChild(li);
             });
 
+            const toggleBtn = document.getElementById("toggleBtn");
+            toggleBtn.addEventListener("click", toggleList);
+
+            // 초기 상태
+            if (rows.length > 6) {
+                isExpanded = false;
+            } else {
+                toggleBtn.style.display = 'none';
+            }
+
         } catch (error) {
             console.error("데이터를 가져오는 중 오류 발생:", error);
+        }
+    }
+
+    function toggleList() {
+        const toggleBtn = document.getElementById("toggleBtn");
+        const allItems = $(".item_link");
+
+        if (isExpanded) {
+            // 접기
+            allItems.each(function(index) {
+                if (index >= 5) {
+                    $(this).slideUp(400, function() {
+                        $(this).addClass("hidden");
+                    });
+                }
+            });
+            toggleBtn.textContent = "더보기";
+            isExpanded = false;
+        } else {
+            // 더보기
+            allItems.each(function(index) {
+                if (index >= 5) {
+                    $(this).removeClass("hidden").hide().slideDown(400);
+                }
+            });
+            toggleBtn.textContent = "접기";
+            isExpanded = true;
         }
     }
 
@@ -89,12 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector(".popup_close").addEventListener("click", popupClose);
 
-
-    // 캘린더 연동
     const calendarIframe = document.querySelector('.calendar-wrapper iframe');
     
     if (calendarIframe) {
-        // 캘린더 로드 완료 후 이벤트
         calendarIframe.addEventListener('load', function() {
             console.log('Google Calendar loaded successfully');
         });

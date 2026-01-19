@@ -57,7 +57,7 @@
 .calendar-section {
     width: 100%;
     margin: 40px 0;
-    border-radius: 15px;
+    border-radius: 25px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -66,7 +66,7 @@
     margin: 0 auto;
     padding: 30px;
     background: white;
-    border-radius: 15px;
+    border-radius: 25px;
     box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -106,4 +106,29 @@
     .calendar-wrapper iframe {
         height: 500px !important;
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.toggle_btn_wrap {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.toggle_btn {
+    padding: 10px 30px;
+    background-color: #0E4EB1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.toggle_btn:hover {
+    background-color: #45a049;
 }
