@@ -89,5 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector(".popup_close").addEventListener("click", popupClose);
 
+
+    // 캘린더 연동
+    const calendarIframe = document.querySelector('.calendar-wrapper iframe');
+    
+    if (calendarIframe) {
+        // 캘린더 로드 완료 후 이벤트
+        calendarIframe.addEventListener('load', function() {
+            console.log('Google Calendar loaded successfully');
+        });
+    }
+
     fetchGoogleSheetData();
 });
